@@ -53,10 +53,10 @@ class AuthController extends CI_Controller
                     $redirect_url = site_url('hr/dashboard');
                     break;
                 case 3:
-                    $redirect_url = site_url('employee/dashboard');
+                    $redirect_url = site_url('supervisor/dashboard');
                     break;
                 case 4:
-                    $redirect_url = site_url('admin/dashboard');
+                    $redirect_url = site_url('trainee/dashboard');
                     break;
                 default:
                     echo json_encode([
@@ -77,5 +77,11 @@ class AuthController extends CI_Controller
                 'message' => 'Invalid email or password.'
             ]);
         }
+    }
+
+    public function logout()
+    {
+        $this->session->sess_destroy();
+        redirect('login'); // Redirect to login page
     }
 }

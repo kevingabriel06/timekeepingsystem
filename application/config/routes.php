@@ -55,13 +55,25 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'AuthController/login';
 $route['login/submit']['post'] = 'AuthController/submit';
+$route['logout'] = 'AuthController/logout';
 
 $route['admin/dashboard'] = 'AdminController/dashboard';
 $route['admin/manage-users'] = 'AdminController/manage_users';
 
+// HR
 $route['hr/dashboard'] = 'HRController/dashboard';
 $route['hr/manage-users'] = 'HRController/manage_users';
 $route['hr/add-user'] = 'HRController/add_users';
 $route['hr/manage-supervisor'] = 'HRController/manage_supervisor';
 $route['hr/manage-trainees'] = 'HRController/manage_trainees';
 $route['hr/leave-approval'] = 'HRController/leave_approval';
+
+// Supervisor
+$route['supervisor/dashboard'] = 'SupervisorController/dashboard';
+$route['supervisor/manage-trainees'] = 'SupervisorController/manage_trainees';
+$route['supervisor/request'] = 'SupervisorController/request';
+
+// Trainee
+$route['trainee/dashboard'] = 'TraineeController/dashboard';
+$route['trainee/attendance-summary'] = 'TraineeController/attendance_summary';
+$route['trainee/request'] = 'TraineeController/request';

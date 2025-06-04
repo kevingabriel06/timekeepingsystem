@@ -23,8 +23,18 @@
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/css/font-awesome.min.css') ?>">
 
+    <!-- Datetimepicker CSS -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap-datetimepicker.min.css') ?>">
+
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="<?= base_url('assets/plugins/select2/select2.min.css') ?>">
+
+    <!-- Full Calendar CSS -->
+    <link rel="stylesheet" href="<?= base_url('assets/plugins/fullcalendar/fullcalendar.min.css') ?>">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
+
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -105,7 +115,7 @@
                                                         </span>
                                                     </span>
                                                 </a>
-                                                <a class="dropdown-item p-2" href="login.html">
+                                                <a class="dropdown-item p-2" href="<?php echo site_url('logout'); ?>">
                                                     <span class="media align-items-center">
                                                         <span class="lnr lnr-power-switch mr-3"></span>
                                                         <span class="media-body text-truncate">
@@ -279,6 +289,54 @@
                                                 <a href="<?= site_url('hr/leave-approval'); ?>" class="btn-ctm-space <?= ($current_page == 'hr/leave-approval') ? 'text-white' : 'text-dark' ?>">
                                                     <span class="lnr lnr-briefcase pr-0 pr-lg-2"></span>
                                                     <span class="d-none d-lg-inline">Leave Approval</span>
+                                                </a>
+                                            </li>
+                                        <?php elseif ($this->session->userdata('RoleID') == 3) : ?>
+                                            <?php $current_page = uri_string(); // Gets the current URI like 'hr/dashboard'
+                                            ?>
+
+                                            <li class="mr-1 <?= ($current_page == 'supervisor/dashboard') ? 'active' : '' ?>">
+                                                <a href="<?= site_url('supervisor/dashboard'); ?>" class="btn-ctm-space <?= ($current_page == 'supervisor/dashboard') ? 'text-white' : 'text-dark' ?>">
+                                                    <span class="lnr lnr-home pr-0 pr-lg-2"></span>
+                                                    <span class="d-none d-lg-inline">Dashboard</span>
+                                                </a>
+                                            </li>
+
+                                            <li class="mr-1 <?= ($current_page == 'supervisor/manage-trainees') ? 'active' : '' ?>">
+                                                <a href="<?= site_url('supervisor/manage-trainees'); ?>" class="btn-ctm-space <?= ($current_page == 'supervisor/manage-trainees') ? 'text-white' : 'text-dark' ?>">
+                                                    <span class="lnr lnr-users pr-0 pr-lg-2"></span>
+                                                    <span class="d-none d-lg-inline">Manage Trainees</span>
+                                                </a>
+                                            </li>
+
+                                            <li class="mr-1 <?= ($current_page == 'supervisor/request') ? 'active' : '' ?>">
+                                                <a href="<?= site_url('supervisor/request'); ?>" class="btn-ctm-space <?= ($current_page == 'supervisor/request') ? 'text-white' : 'text-dark' ?>">
+                                                    <span class="lnr lnr-sync pr-0 pr-lg-2"></span>
+                                                    <span class="d-none d-lg-inline">Requests</span>
+                                                </a>
+                                            </li>
+                                        <?php elseif ($this->session->userdata('RoleID') == 4) : ?>
+                                            <?php $current_page = uri_string(); // Gets the current URI like 'hr/dashboard'
+                                            ?>
+
+                                            <li class="mr-1 <?= ($current_page == 'trainee/dashboard') ? 'active' : '' ?>">
+                                                <a href="<?= site_url('trainee/dashboard'); ?>" class="btn-ctm-space <?= ($current_page == 'trainee/dashboard') ? 'text-white' : 'text-dark' ?>">
+                                                    <span class="lnr lnr-home pr-0 pr-lg-2"></span>
+                                                    <span class="d-none d-lg-inline">Dashboard</span>
+                                                </a>
+                                            </li>
+
+                                            <li class="mr-1 <?= ($current_page == 'trainee/attendance-summary') ? 'active' : '' ?>">
+                                                <a href="<?= site_url('trainee/attendance-summary'); ?>" class="btn-ctm-space <?= ($current_page == 'trainee/attendance-summary') ? 'text-white' : 'text-dark' ?>">
+                                                    <span class="lnr lnr-calendar-full pr-0 pr-lg-2"></span>
+                                                    <span class="d-none d-lg-inline">Attendance Summary</span>
+                                                </a>
+                                            </li>
+
+                                            <li class="mr-1 <?= ($current_page == 'trainee/request') ? 'active' : '' ?>">
+                                                <a href="<?= site_url('trainee/request'); ?>" class="btn-ctm-space <?= ($current_page == 'trainee/request') ? 'text-white' : 'text-dark' ?>">
+                                                    <span class="lnr lnr-sync pr-0 pr-lg-2"></span>
+                                                    <span class="d-none d-lg-inline">Requests</span>
                                                 </a>
                                             </li>
                                         <?php else: ?>
