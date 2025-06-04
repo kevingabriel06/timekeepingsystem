@@ -11,10 +11,10 @@
                                     <div class="custom-search input-group">
                                         <div class="custom-breadcrumb">
                                             <ol class="breadcrumb no-bg-color d-inline-block p-0 m-0 mb-2">
-                                                <li class="breadcrumb-item d-inline-block"><a href="index.html" class="text-dark">Home</a></li>
+                                                <li class="breadcrumb-item d-inline-block"><a href="<?php echo site_url('hr/dashboard'); ?>" class="text-dark">Home</a></li>
                                                 <li class="breadcrumb-item d-inline-block active">Dashboard</li>
                                             </ol>
-                                            <h4 class="text-dark">Admin Dashboard</h4>
+                                            <h4 class="text-dark">Human Resource Dashboard</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -24,20 +24,13 @@
                     <div class="user-card card shadow-sm bg-white text-center ctm-border-radius">
                         <div class="user-info card-body">
                             <div class="user-avatar mb-4">
-                                <img src="assets/img/profiles/img-13.jpg" alt="User Avatar" class="img-fluid rounded-circle" width="100">
+                                <img src="<?php echo base_url('assets/img/profiles/img-13.jpg'); ?>" alt="User Avatar" class="img-fluid rounded-circle" width="100">
                             </div>
+                            <?php date_default_timezone_set('Asia/Manila'); ?>
                             <div class="user-details">
-                                <h4><b>Welcome Admin</b></h4>
-                                <p>Sun, 29 Nov 2019</p>
+                                <h4><b>Welcome HR Officer</b></h4>
+                                <p><?= date('D, d M Y h:i A'); ?></p>
                             </div>
-                        </div>
-                    </div>
-                    <div class="quicklink-sidebar-menu ctm-border-radius shadow-sm bg-white card">
-                        <div class="card-body">
-                            <ul class="list-group">
-                                <li class="list-group-item text-center active button-5"><a href="index.html" class="text-white">Admin Dashboard</a></li>
-                                <li class="list-group-item text-center button-6"><a class="text-dark" href="employees-dashboard.html">Employees Dashboard</a></li>
-                            </ul>
                         </div>
                     </div>
                 </aside>
@@ -47,33 +40,33 @@
 
                 <!-- Widget -->
                 <div class="row">
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="col-md-4 col-sm-6 col-12">
                         <div class="card dash-widget ctm-border-radius shadow-sm">
                             <div class="card-body">
                                 <div class="card-icon bg-primary">
                                     <i class="fa fa-users" aria-hidden="true"></i>
                                 </div>
                                 <div class="card-right">
-                                    <h4 class="card-title">Employees</h4>
+                                    <h4 class="card-title">Supervisors</h4>
                                     <p class="card-text">700</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-6 col-sm-6 col-12">
+                    <div class="col-md-4 col-sm-6 col-12">
                         <div class="card dash-widget ctm-border-radius shadow-sm">
                             <div class="card-body">
                                 <div class="card-icon bg-warning">
-                                    <i class="fa fa-building-o"></i>
+                                    <i class="fa fa-users" aria-hidden="true"></i>
                                 </div>
                                 <div class="card-right">
-                                    <h4 class="card-title">Companies</h4>
-                                    <p class="card-text">30</p>
+                                    <h4 class="card-title">Trainees</h4>
+                                    <p class="card-text">700</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-6 col-sm-6 col-12">
+                    <div class="col-md-4 col-sm-6 col-12">
                         <div class="card dash-widget ctm-border-radius shadow-sm">
                             <div class="card-body">
                                 <div class="card-icon bg-danger">
@@ -86,20 +79,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-6 col-sm-6 col-12">
-                        <div class="card dash-widget ctm-border-radius shadow-sm">
-                            <div class="card-body">
-                                <div class="card-icon bg-success">
-                                    <i class="fa fa-money" aria-hidden="true"></i>
-                                </div>
-                                <div class="card-right">
-                                    <h4 class="card-title">Salary</h4>
-                                    <p class="card-text">$5.8M</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+
                 <!-- / Widget -->
 
                 <!-- Chart -->

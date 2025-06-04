@@ -61,4 +61,7 @@ $route['admin/manage-users'] = 'AdminController/manage_users';
 
 $route['hr/dashboard'] = 'HRController/dashboard';
 $route['hr/manage-users'] = 'HRController/manage_users';
+$route['hr/add-user'] = 'HRController/add_users';
+$route['hr/manage-supervisor'] = 'HRController/manage_supervisor';
+$route['hr/manage-trainees'] = 'HRController/manage_trainees';
 $route['hr/leave-approval'] = 'HRController/leave_approval';

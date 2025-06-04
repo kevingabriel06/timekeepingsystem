@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Dashboard Page</title>
+    <title><?php echo $title; ?></title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
@@ -39,16 +39,16 @@
     <div class="inner-wrapper">
 
         <!-- Loader
-    <div id="loader-wrapper">
+        <div id="loader-wrapper">
 
-        <div class="loader">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
-    </div> -->
+            <div class="loader">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div> -->
 
 
         <!-- Header -->
@@ -78,17 +78,6 @@
                                             </div>
                                         </div>
 
-                                        <!-- User notification-->
-                                        <div class="user-notification-block align-right d-inline-block">
-                                            <ul class="list-inline m-0">
-                                                <li class="list-inline-item item-animated" data-toggle="tooltip" data-placement="top" title="" data-original-title="Apply Leave">
-                                                    <a href="leave.html" class="font-23 menu-style text-white align-middle">
-                                                        <span class="lnr lnr-briefcase position-relative"></span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /User notification-->
 
                                         <!-- user info-->
                                         <div class="user-info align-right dropdown d-inline-block header-dropdown">
@@ -268,15 +257,39 @@
                             <div class="header-menu-list d-flex bg-white rt_nav_header horizontal-layout nav-bottom">
                                 <div class="append mr-auto my-0 my-md-0 mr-auto">
                                     <ul class="list-group list-group-horizontal-md mr-auto">
-                                        <li class="mr-1 active"><a href="index.html" class="btn-ctm-space text-white"><span class="lnr lnr-home pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Dashboard</span></a></li>
-                                        <li class="mr-1"><a class="text-dark btn-ctm-space " href="<?php echo site_url('hr/manage-users'); ?>"><span class="lnr lnr-users pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Manage Users</span></a></li>
-                                        <li class="mr-1"><a class="text-dark btn-ctm-space " href="company.html"><span class="lnr lnr-apartment pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Company</span></a></li>
-                                        <li class="mr-1"><a class="btn-ctm-space text-dark" href="calendar.html"><span class="lnr lnr-calendar-full pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Calendar</span></a></li>
-                                        <li class="mr-1"><a class="btn-ctm-space text-dark" href="<?php echo site_url('hr/leave-approval'); ?>"><span class="lnr lnr-briefcase pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Leave</span></a></li>
-                                        <li class="mr-1"><a class="text-dark btn-ctm-space" href="reviews.html"><span class="lnr lnr-star pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Reviews</span></a></li>
-                                        <li class="mr-1"><a class="btn-ctm-space text-dark" href="reports.html"><span class="lnr lnr-rocket pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Reports</span></a></li>
-                                        <li class="mr-1"><a class="btn-ctm-space text-dark" href="manage.html"><span class="lnr lnr-sync pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Manage</span></a></li>
-                                        <li class="mr-1"><a class="btn-ctm-space text-dark" href="settings.html"><span class="lnr lnr-cog pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Settings</span></a></li>
+                                        <?php if ($this->session->userdata('RoleID') == 2): ?>
+                                            <?php $current_page = uri_string(); // Gets the current URI like 'hr/dashboard'
+                                            ?>
+
+                                            <li class="mr-1 <?= ($current_page == 'hr/dashboard') ? 'active' : '' ?>">
+                                                <a href="<?= site_url('hr/dashboard'); ?>" class="btn-ctm-space <?= ($current_page == 'hr/dashboard') ? 'text-white' : 'text-dark' ?>">
+                                                    <span class="lnr lnr-home pr-0 pr-lg-2"></span>
+                                                    <span class="d-none d-lg-inline">Dashboard</span>
+                                                </a>
+                                            </li>
+
+                                            <li class="mr-1 <?= ($current_page == 'hr/manage-users') ? 'active' : '' ?>">
+                                                <a href="<?= site_url('hr/manage-users'); ?>" class="btn-ctm-space <?= ($current_page == 'hr/manage-users') ? 'text-white' : 'text-dark' ?>">
+                                                    <span class="lnr lnr-users pr-0 pr-lg-2"></span>
+                                                    <span class="d-none d-lg-inline">Manage Users</span>
+                                                </a>
+                                            </li>
+
+                                            <li class="mr-1 <?= ($current_page == 'hr/leave-approval') ? 'active' : '' ?>">
+                                                <a href="<?= site_url('hr/leave-approval'); ?>" class="btn-ctm-space <?= ($current_page == 'hr/leave-approval') ? 'text-white' : 'text-dark' ?>">
+                                                    <span class="lnr lnr-briefcase pr-0 pr-lg-2"></span>
+                                                    <span class="d-none d-lg-inline">Leave Approval</span>
+                                                </a>
+                                            </li>
+                                        <?php else: ?>
+                                            <li class="mr-1"><a class="text-dark btn-ctm-space " href="company.html"><span class="lnr lnr-apartment pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Company</span></a></li>
+                                            <li class="mr-1"><a class="btn-ctm-space text-dark" href="calendar.html"><span class="lnr lnr-calendar-full pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Calendar</span></a></li>
+                                            <li class="mr-1"><a class="btn-ctm-space text-dark" href="<?php echo site_url('hr/leave-approval'); ?>"><span class="lnr lnr-briefcase pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Leave</span></a></li>
+                                            <li class="mr-1"><a class="text-dark btn-ctm-space" href="reviews.html"><span class="lnr lnr-star pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Reviews</span></a></li>
+                                            <li class="mr-1"><a class="btn-ctm-space text-dark" href="reports.html"><span class="lnr lnr-rocket pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Reports</span></a></li>
+                                            <li class="mr-1"><a class="btn-ctm-space text-dark" href="manage.html"><span class="lnr lnr-sync pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Manage</span></a></li>
+                                            <li class="mr-1"><a class="btn-ctm-space text-dark" href="settings.html"><span class="lnr lnr-cog pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Settings</span></a></li>
+                                        <?php endif; ?>
                                     </ul>
                                 </div>
 
