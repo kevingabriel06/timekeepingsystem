@@ -75,5 +75,10 @@ $route['supervisor/request'] = 'SupervisorController/request';
 
 // Trainee
 $route['trainee/dashboard'] = 'TraineeController/dashboard';
+$route['trainee/clock-in'] = 'TraineeController/clock_in';
+$route['trainee/clock-out'] = 'TraineeController/clock_out';
 $route['trainee/attendance-summary'] = 'TraineeController/attendance_summary';
 $route['trainee/request'] = 'TraineeController/request';
+$route['trainee/submit-request'] = 'TraineeController/submit_request';
+
+$route['trainee/profile-settings'] = 'TraineeController/profile_settings';

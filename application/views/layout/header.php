@@ -69,9 +69,9 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-3 col-sm-3 col-6">
-                            <div class="logo my-3 my-sm-0">
+                            <div class="logo my-2 my-sm-0">
                                 <a href="index.html">
-                                    <img src="assets/img/logo.png" alt="logo image" class="img-fluid" width="100">
+                                    <img src="<?php echo base_url('assets/materials/logo/image-removebg-preview_1.png'); ?>" alt="logo image" class="img-fluid" width="30" height="30">
                                 </a>
                             </div>
                         </div>
@@ -79,39 +79,22 @@
                             <div class="user-block d-none d-lg-block">
                                 <div class="row align-items-center">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <div class="user-notification-block align-right d-inline-block">
-                                            <div class="top-nav-search item-animated">
-                                                <form>
-                                                    <input type="text" class="form-control" placeholder="Search here">
-                                                    <button class="btn" type="submit"><i class="fa fa-search"></i></button>
-                                                </form>
-                                            </div>
-                                        </div>
-
 
                                         <!-- user info-->
                                         <div class="user-info align-right dropdown d-inline-block header-dropdown">
                                             <a href="javascript:void(0)" data-toggle="dropdown" class=" menu-style dropdown-toggle">
                                                 <div class="user-avatar d-inline-block">
-                                                    <img src="assets/img/profiles/img-6.jpg" alt="user avatar" class="rounded-circle img-fluid" width="55">
+                                                    <img src="<?php echo base_url('assets/profile-pic/' . $user->Profile_pic); ?>" alt="user avatar" class="rounded-circle img-fluid" width="55">
                                                 </div>
                                             </a>
 
                                             <!-- Notifications -->
                                             <div class="dropdown-menu notification-dropdown-menu shadow-lg border-0 p-3 m-0 dropdown-menu-right">
-                                                <a class="dropdown-item p-2" href="employment.html">
+                                                <a class="dropdown-item p-2" href="<?php echo site_url('trainee/profile-settings'); ?>">
                                                     <span class="media align-items-center">
                                                         <span class="lnr lnr-user mr-3"></span>
                                                         <span class="media-body text-truncate">
                                                             <span class="text-truncate">Profile</span>
-                                                        </span>
-                                                    </span>
-                                                </a>
-                                                <a class="dropdown-item p-2" href="profile-settings.html">
-                                                    <span class="media align-items-center">
-                                                        <span class="lnr lnr-cog mr-3"></span>
-                                                        <span class="media-body text-truncate">
-                                                            <span class="text-truncate">Settings</span>
                                                         </span>
                                                     </span>
                                                 </a>
