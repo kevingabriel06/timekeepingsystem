@@ -14,7 +14,7 @@
                                                 <li class="breadcrumb-item d-inline-block"><a href="<?php echo site_url('trainee/dashboard'); ?>" class="text-dark">Home</a></li>
                                                 <li class="breadcrumb-item d-inline-block active">Request</li>
                                             </ol>
-                                            <h4 class="text-dark">Request</h4>
+                                            <h4 class="text-dark">Log Request</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -23,16 +23,7 @@
                     </div>
                     <div class="card ctm-border-radius shadow-sm">
                         <div class="card-body">
-                            <a href="create-review.html" class="btn btn-theme button-1 ctm-border-radius text-white btn-block"><span><i class="fa fa-plus"></i></span> Create Review</a>
-                        </div>
-                    </div>
-                    <div class="quicklink-sidebar-menu ctm-border-radius shadow-sm bg-white card">
-                        <div class="card-body">
-                            <div class="flex-column list-group" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                <a class=" active list-group-item" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Overtime Request</a>
-                                <a class="list-group-item" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Log Request</a>
-
-                            </div>
+                            <a href="<?php echo site_url('trainee/submit-request'); ?>" class="btn btn-theme button-1 ctm-border-radius text-white btn-block"><span><i class="fa fa-plus"></i></span>Submit Request</a>
                         </div>
                     </div>
                 </aside>
@@ -210,129 +201,6 @@
                                 </div>
                             </div>
                             <!--/Tab 1-->
-
-                            <!-- Tab2-->
-                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                <div class="employee-office-table">
-                                    <div class="table-responsive">
-                                        <table class="table custom-table table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Created By</th>
-                                                    <th>Scheduled For</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-                                                <tr>
-                                                    <td>Monthly Review</td>
-                                                    <td>
-                                                        <a href="employment.html" class="avatar"><img class="img-fluid" alt="avatar image" src="assets/img/profiles/img-10.jpg"></a>
-                                                        <h2><a href="employment.html"> Richard Wilson</a></h2>
-                                                    </td>
-                                                    <td>
-                                                        Everyone
-                                                    </td>
-                                                    <td>
-                                                        <div class="table-action">
-                                                            <a href="edit-review.html" class="btn btn-sm btn-outline-success">
-                                                                <span class="lnr lnr-pencil"></span> Edit
-                                                            </a>
-                                                            <a href="javascript:void(0);" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#delete">
-                                                                <span class="lnr lnr-trash"></span> Delete
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Employees Review</td>
-                                                    <td>
-                                                        <a href="employment.html" class="avatar"><img class="img-fluid" alt="avatar image" src="assets/img/profiles/img-10.jpg"></a>
-                                                        <h2><a href="employment.html"> Richard Wilson</a></h2>
-                                                    </td>
-                                                    <td>
-                                                        Everyone
-                                                    </td>
-                                                    <td>
-                                                        <div class="table-action">
-                                                            <a href="edit-review.html" class="btn btn-sm btn-outline-success">
-                                                                <span class="lnr lnr-pencil"></span> Edit
-                                                            </a>
-                                                            <a href="javascript:void(0);" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#delete">
-                                                                <span class="lnr lnr-trash"></span> Delete
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Employees Review</td>
-                                                    <td>
-                                                        <a href="employment.html" class="avatar"><img class="img-fluid" alt="avatar image" src="assets/img/profiles/img-10.jpg"></a>
-                                                        <h2><a href="employment.html"> Richard Wilson</a></h2>
-                                                    </td>
-                                                    <td>
-                                                        Everyone
-                                                    </td>
-                                                    <td>
-                                                        <div class="table-action">
-                                                            <a href="edit-review.html" class="btn btn-sm btn-outline-success">
-                                                                <span class="lnr lnr-pencil"></span> Edit
-                                                            </a>
-                                                            <a href="javascript:void(0);" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#delete">
-                                                                <span class="lnr lnr-trash"></span> Delete
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Employees Review</td>
-                                                    <td>
-                                                        <a href="employment.html" class="avatar"><img class="img-fluid" alt="avatar image" src="assets/img/profiles/img-10.jpg"></a>
-                                                        <h2><a href="employment.html"> Richard Wilson</a></h2>
-                                                    </td>
-                                                    <td>
-                                                        Everyone
-                                                    </td>
-                                                    <td>
-                                                        <div class="table-action">
-                                                            <a href="edit-review.html" class="btn btn-sm btn-outline-success">
-                                                                <span class="lnr lnr-pencil"></span> Edit
-                                                            </a>
-                                                            <a href="javascript:void(0);" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#delete">
-                                                                <span class="lnr lnr-trash"></span> Delete
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Employees Review</td>
-                                                    <td>
-                                                        <a href="employment.html" class="avatar"><img class="img-fluid" alt="avatar image" src="assets/img/profiles/img-10.jpg"></a>
-                                                        <h2><a href="employment.html"> Richard Wilson</a></h2>
-                                                    </td>
-                                                    <td>
-                                                        Everyone
-                                                    </td>
-                                                    <td>
-                                                        <div class="table-action">
-                                                            <a href="edit-review.html" class="btn btn-sm btn-outline-success">
-                                                                <span class="lnr lnr-pencil"></span> Edit
-                                                            </a>
-                                                            <a href="javascript:void(0);" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#delete">
-                                                                <span class="lnr lnr-trash"></span> Delete
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /Tab 2-->
 
                         </div>
                     </div>
