@@ -41,13 +41,35 @@ class AuthController extends CI_Controller
         if ($user) {
             $this->session->set_userdata([
                 'UserID' => $user->UserID,
-                'RoleID'    => $user->RoleID // Make sure 'role' is a column in your users table
+                'RoleID' => $user->RoleID
             ]);
+
+            // Define redirect URLs per role
+            switch ($user->RoleID) {
+                case 1:
+                    $redirect_url = site_url('hr/dashboard');
+                    break;
+                case 2:
+                    $redirect_url = site_url('hr/dashboard');
+                    break;
+                case 3:
+                    $redirect_url = site_url('supervisor/dashboard');
+                    break;
+                case 4:
+                    $redirect_url = site_url('trainee/dashboard');
+                    break;
+                default:
+                    echo json_encode([
+                        'status' => 'error',
+                        'message' => 'Unauthorized role.'
+                    ]);
+                    return;
+            }
 
             echo json_encode([
                 'status' => 'success',
                 'message' => 'Login successful!',
-                'redirect_url' => site_url('hr/dashboard')
+                'redirect_url' => $redirect_url
             ]);
         } else {
             echo json_encode([
@@ -55,5 +77,11 @@ class AuthController extends CI_Controller
                 'message' => 'Invalid email or password.'
             ]);
         }
+    }
+
+    public function logout()
+    {
+        $this->session->sess_destroy();
+        redirect('login'); // Redirect to login page
     }
 }

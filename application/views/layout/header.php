@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Dashboard Page</title>
+    <title><?php echo $title; ?></title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
@@ -23,8 +23,18 @@
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/css/font-awesome.min.css') ?>">
 
+    <!-- Datetimepicker CSS -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap-datetimepicker.min.css') ?>">
+
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="<?= base_url('assets/plugins/select2/select2.min.css') ?>">
+
+    <!-- Full Calendar CSS -->
+    <link rel="stylesheet" href="<?= base_url('assets/plugins/fullcalendar/fullcalendar.min.css') ?>">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
+
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -39,16 +49,16 @@
     <div class="inner-wrapper">
 
         <!-- Loader
-    <div id="loader-wrapper">
+        <div id="loader-wrapper">
 
-        <div class="loader">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
-    </div> -->
+            <div class="loader">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div> -->
 
 
         <!-- Header -->
@@ -59,9 +69,9 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-3 col-sm-3 col-6">
-                            <div class="logo my-3 my-sm-0">
+                            <div class="logo my-2 my-sm-0">
                                 <a href="index.html">
-                                    <img src="assets/img/logo.png" alt="logo image" class="img-fluid" width="100">
+                                    <img src="<?php echo base_url('assets/materials/logo/image-removebg-preview_1.png'); ?>" alt="logo image" class="img-fluid" width="30" height="30">
                                 </a>
                             </div>
                         </div>
@@ -69,38 +79,18 @@
                             <div class="user-block d-none d-lg-block">
                                 <div class="row align-items-center">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <div class="user-notification-block align-right d-inline-block">
-                                            <div class="top-nav-search item-animated">
-                                                <form>
-                                                    <input type="text" class="form-control" placeholder="Search here">
-                                                    <button class="btn" type="submit"><i class="fa fa-search"></i></button>
-                                                </form>
-                                            </div>
-                                        </div>
-
-                                        <!-- User notification-->
-                                        <div class="user-notification-block align-right d-inline-block">
-                                            <ul class="list-inline m-0">
-                                                <li class="list-inline-item item-animated" data-toggle="tooltip" data-placement="top" title="" data-original-title="Apply Leave">
-                                                    <a href="leave.html" class="font-23 menu-style text-white align-middle">
-                                                        <span class="lnr lnr-briefcase position-relative"></span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /User notification-->
 
                                         <!-- user info-->
                                         <div class="user-info align-right dropdown d-inline-block header-dropdown">
                                             <a href="javascript:void(0)" data-toggle="dropdown" class=" menu-style dropdown-toggle">
                                                 <div class="user-avatar d-inline-block">
-                                                    <img src="assets/img/profiles/img-6.jpg" alt="user avatar" class="rounded-circle img-fluid" width="55">
+                                                    <img src="<?php echo base_url('assets/profile-pic/' . $user->Profile_pic); ?>" alt="user avatar" class="rounded-circle img-fluid" width="55">
                                                 </div>
                                             </a>
 
                                             <!-- Notifications -->
                                             <div class="dropdown-menu notification-dropdown-menu shadow-lg border-0 p-3 m-0 dropdown-menu-right">
-                                                <a class="dropdown-item p-2" href="employment.html">
+                                                <a class="dropdown-item p-2" href="<?php echo site_url('trainee/profile-settings'); ?>">
                                                     <span class="media align-items-center">
                                                         <span class="lnr lnr-user mr-3"></span>
                                                         <span class="media-body text-truncate">
@@ -108,15 +98,7 @@
                                                         </span>
                                                     </span>
                                                 </a>
-                                                <a class="dropdown-item p-2" href="profile-settings.html">
-                                                    <span class="media align-items-center">
-                                                        <span class="lnr lnr-cog mr-3"></span>
-                                                        <span class="media-body text-truncate">
-                                                            <span class="text-truncate">Settings</span>
-                                                        </span>
-                                                    </span>
-                                                </a>
-                                                <a class="dropdown-item p-2" href="login.html">
+                                                <a class="dropdown-item p-2" href="<?php echo site_url('logout'); ?>">
                                                     <span class="media align-items-center">
                                                         <span class="lnr lnr-power-switch mr-3"></span>
                                                         <span class="media-body text-truncate">
@@ -268,15 +250,87 @@
                             <div class="header-menu-list d-flex bg-white rt_nav_header horizontal-layout nav-bottom">
                                 <div class="append mr-auto my-0 my-md-0 mr-auto">
                                     <ul class="list-group list-group-horizontal-md mr-auto">
-                                        <li class="mr-1 active"><a href="index.html" class="btn-ctm-space text-white"><span class="lnr lnr-home pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Dashboard</span></a></li>
-                                        <li class="mr-1"><a class="text-dark btn-ctm-space " href="<?php echo site_url('hr/manage-users'); ?>"><span class="lnr lnr-users pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Manage Users</span></a></li>
-                                        <li class="mr-1"><a class="text-dark btn-ctm-space " href="company.html"><span class="lnr lnr-apartment pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Company</span></a></li>
-                                        <li class="mr-1"><a class="btn-ctm-space text-dark" href="calendar.html"><span class="lnr lnr-calendar-full pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Calendar</span></a></li>
-                                        <li class="mr-1"><a class="btn-ctm-space text-dark" href="<?php echo site_url('hr/leave-approval'); ?>"><span class="lnr lnr-briefcase pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Leave</span></a></li>
-                                        <li class="mr-1"><a class="text-dark btn-ctm-space" href="reviews.html"><span class="lnr lnr-star pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Reviews</span></a></li>
-                                        <li class="mr-1"><a class="btn-ctm-space text-dark" href="reports.html"><span class="lnr lnr-rocket pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Reports</span></a></li>
-                                        <li class="mr-1"><a class="btn-ctm-space text-dark" href="manage.html"><span class="lnr lnr-sync pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Manage</span></a></li>
-                                        <li class="mr-1"><a class="btn-ctm-space text-dark" href="settings.html"><span class="lnr lnr-cog pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Settings</span></a></li>
+                                        <?php if ($this->session->userdata('RoleID') == 2): ?>
+                                            <?php $current_page = uri_string(); // Gets the current URI like 'hr/dashboard'
+                                            ?>
+
+                                            <li class="mr-1 <?= ($current_page == 'hr/dashboard') ? 'active' : '' ?>">
+                                                <a href="<?= site_url('hr/dashboard'); ?>" class="btn-ctm-space <?= ($current_page == 'hr/dashboard') ? 'text-white' : 'text-dark' ?>">
+                                                    <span class="lnr lnr-home pr-0 pr-lg-2"></span>
+                                                    <span class="d-none d-lg-inline">Dashboard</span>
+                                                </a>
+                                            </li>
+
+                                            <li class="mr-1 <?= ($current_page == 'hr/manage-users') ? 'active' : '' ?>">
+                                                <a href="<?= site_url('hr/manage-users'); ?>" class="btn-ctm-space <?= ($current_page == 'hr/manage-users') ? 'text-white' : 'text-dark' ?>">
+                                                    <span class="lnr lnr-users pr-0 pr-lg-2"></span>
+                                                    <span class="d-none d-lg-inline">Manage Users</span>
+                                                </a>
+                                            </li>
+
+                                            <li class="mr-1 <?= ($current_page == 'hr/leave-approval') ? 'active' : '' ?>">
+                                                <a href="<?= site_url('hr/leave-approval'); ?>" class="btn-ctm-space <?= ($current_page == 'hr/leave-approval') ? 'text-white' : 'text-dark' ?>">
+                                                    <span class="lnr lnr-briefcase pr-0 pr-lg-2"></span>
+                                                    <span class="d-none d-lg-inline">Leave Approval</span>
+                                                </a>
+                                            </li>
+                                        <?php elseif ($this->session->userdata('RoleID') == 3) : ?>
+                                            <?php $current_page = uri_string(); // Gets the current URI like 'hr/dashboard'
+                                            ?>
+
+                                            <li class="mr-1 <?= ($current_page == 'supervisor/dashboard') ? 'active' : '' ?>">
+                                                <a href="<?= site_url('supervisor/dashboard'); ?>" class="btn-ctm-space <?= ($current_page == 'supervisor/dashboard') ? 'text-white' : 'text-dark' ?>">
+                                                    <span class="lnr lnr-home pr-0 pr-lg-2"></span>
+                                                    <span class="d-none d-lg-inline">Dashboard</span>
+                                                </a>
+                                            </li>
+
+                                            <li class="mr-1 <?= ($current_page == 'supervisor/manage-trainees') ? 'active' : '' ?>">
+                                                <a href="<?= site_url('supervisor/manage-trainees'); ?>" class="btn-ctm-space <?= ($current_page == 'supervisor/manage-trainees') ? 'text-white' : 'text-dark' ?>">
+                                                    <span class="lnr lnr-users pr-0 pr-lg-2"></span>
+                                                    <span class="d-none d-lg-inline">Manage Trainees</span>
+                                                </a>
+                                            </li>
+
+                                            <li class="mr-1 <?= ($current_page == 'supervisor/request') ? 'active' : '' ?>">
+                                                <a href="<?= site_url('supervisor/request'); ?>" class="btn-ctm-space <?= ($current_page == 'supervisor/request') ? 'text-white' : 'text-dark' ?>">
+                                                    <span class="lnr lnr-sync pr-0 pr-lg-2"></span>
+                                                    <span class="d-none d-lg-inline">Requests</span>
+                                                </a>
+                                            </li>
+                                        <?php elseif ($this->session->userdata('RoleID') == 4) : ?>
+                                            <?php $current_page = uri_string(); // Gets the current URI like 'hr/dashboard'
+                                            ?>
+
+                                            <li class="mr-1 <?= ($current_page == 'trainee/dashboard') ? 'active' : '' ?>">
+                                                <a href="<?= site_url('trainee/dashboard'); ?>" class="btn-ctm-space <?= ($current_page == 'trainee/dashboard') ? 'text-white' : 'text-dark' ?>">
+                                                    <span class="lnr lnr-home pr-0 pr-lg-2"></span>
+                                                    <span class="d-none d-lg-inline">Dashboard</span>
+                                                </a>
+                                            </li>
+
+                                            <li class="mr-1 <?= ($current_page == 'trainee/attendance-summary') ? 'active' : '' ?>">
+                                                <a href="<?= site_url('trainee/attendance-summary'); ?>" class="btn-ctm-space <?= ($current_page == 'trainee/attendance-summary') ? 'text-white' : 'text-dark' ?>">
+                                                    <span class="lnr lnr-calendar-full pr-0 pr-lg-2"></span>
+                                                    <span class="d-none d-lg-inline">Attendance Summary</span>
+                                                </a>
+                                            </li>
+
+                                            <li class="mr-1 <?= ($current_page == 'trainee/request') ? 'active' : '' ?>">
+                                                <a href="<?= site_url('trainee/request'); ?>" class="btn-ctm-space <?= ($current_page == 'trainee/request') ? 'text-white' : 'text-dark' ?>">
+                                                    <span class="lnr lnr-sync pr-0 pr-lg-2"></span>
+                                                    <span class="d-none d-lg-inline">Requests</span>
+                                                </a>
+                                            </li>
+                                        <?php else: ?>
+                                            <li class="mr-1"><a class="text-dark btn-ctm-space " href="company.html"><span class="lnr lnr-apartment pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Company</span></a></li>
+                                            <li class="mr-1"><a class="btn-ctm-space text-dark" href="calendar.html"><span class="lnr lnr-calendar-full pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Calendar</span></a></li>
+                                            <li class="mr-1"><a class="btn-ctm-space text-dark" href="<?php echo site_url('hr/leave-approval'); ?>"><span class="lnr lnr-briefcase pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Leave</span></a></li>
+                                            <li class="mr-1"><a class="text-dark btn-ctm-space" href="reviews.html"><span class="lnr lnr-star pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Reviews</span></a></li>
+                                            <li class="mr-1"><a class="btn-ctm-space text-dark" href="reports.html"><span class="lnr lnr-rocket pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Reports</span></a></li>
+                                            <li class="mr-1"><a class="btn-ctm-space text-dark" href="manage.html"><span class="lnr lnr-sync pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Manage</span></a></li>
+                                            <li class="mr-1"><a class="btn-ctm-space text-dark" href="settings.html"><span class="lnr lnr-cog pr-0 pr-lg-2"></span><span class="d-none d-lg-inline">Settings</span></a></li>
+                                        <?php endif; ?>
                                     </ul>
                                 </div>
 
